@@ -1,0 +1,1 @@
+/Users/andrei/blockchain-contract/target/wasm32v1-none/release/blockchain_contract_wasm.wasm: /Users/andrei/blockchain-contract/src/blockchain_contract.rs /Users/andrei/blockchain-contract/wasm/src/lib.rs

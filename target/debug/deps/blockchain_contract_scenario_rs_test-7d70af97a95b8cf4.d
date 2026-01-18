@@ -1,0 +1,5 @@
+/Users/andrei/blockchain-contract/target/debug/deps/blockchain_contract_scenario_rs_test-7d70af97a95b8cf4.d: tests/blockchain_contract_scenario_rs_test.rs
+
+/Users/andrei/blockchain-contract/target/debug/deps/libblockchain_contract_scenario_rs_test-7d70af97a95b8cf4.rmeta: tests/blockchain_contract_scenario_rs_test.rs
+
+tests/blockchain_contract_scenario_rs_test.rs:

@@ -1,0 +1,262 @@
+{
+    "buildInfo": {
+        "contractCrate": {
+            "name": "blockchain-contract",
+            "version": "0.0.0"
+        },
+        "framework": {
+            "name": "multiversx-sc",
+            "version": "0.64.1"
+        }
+    },
+    "docs": [
+        "An empty contract. To be used as a template when starting a new contract from scratch."
+    ],
+    "name": "BlockchainContract",
+    "constructor": {
+        "inputs": [],
+        "outputs": []
+    },
+    "upgradeConstructor": {
+        "inputs": [],
+        "outputs": []
+    },
+    "endpoints": [
+        {
+            "name": "getRelease",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "Slot"
+                }
+            ]
+        },
+        {
+            "name": "proposeRelease",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes"
+                },
+                {
+                    "name": "hash",
+                    "type": "bytes"
+                },
+                {
+                    "name": "url",
+                    "type": "bytes"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "approveRelease",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "rejectRelease",
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setRequiredApprovals",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "approvals",
+                    "type": "u32"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "addAdmin",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "admin",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "removeAdmin",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "admin",
+                    "type": "Address"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "getAdmins",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<Address>",
+                    "multi_result": true
+                }
+            ]
+        },
+        {
+            "name": "getRequiredApprovals",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "u32"
+                }
+            ]
+        },
+        {
+            "name": "getSlots",
+            "mutability": "readonly",
+            "inputs": [],
+            "outputs": [
+                {
+                    "type": "variadic<multi<bytes,Slot>>",
+                    "multi_result": true
+                }
+            ]
+        }
+    ],
+    "events": [
+        {
+            "identifier": "set_required_approvals",
+            "inputs": [
+                {
+                    "name": "approvals",
+                    "type": "u32",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "identifier": "add_admin",
+            "inputs": [
+                {
+                    "name": "admin",
+                    "type": "Address",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "identifier": "remove_admin",
+            "inputs": [
+                {
+                    "name": "admin",
+                    "type": "Address",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "identifier": "reject_release",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "identifier": "approve_release",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes",
+                    "indexed": true
+                }
+            ]
+        },
+        {
+            "identifier": "propose_release",
+            "inputs": [
+                {
+                    "name": "version",
+                    "type": "bytes",
+                    "indexed": true
+                }
+            ]
+        }
+    ],
+    "esdtAttributes": [],
+    "hasCallback": false,
+    "types": {
+        "Slot": {
+            "type": "struct",
+            "fields": [
+                {
+                    "name": "version",
+                    "type": "bytes"
+                },
+                {
+                    "name": "hash",
+                    "type": "bytes"
+                },
+                {
+                    "name": "url",
+                    "type": "bytes"
+                },
+                {
+                    "name": "status",
+                    "type": "Status"
+                },
+                {
+                    "name": "approvals",
+                    "type": "List<Address>"
+                },
+                {
+                    "name": "creator",
+                    "type": "Address"
+                }
+            ]
+        },
+        "Status": {
+            "type": "enum",
+            "variants": [
+                {
+                    "name": "PROPOSED",
+                    "discriminant": 0
+                },
+                {
+                    "name": "APPROVED",
+                    "discriminant": 1
+                },
+                {
+                    "name": "REJECTED",
+                    "discriminant": 2
+                }
+            ]
+        }
+    }
+}
